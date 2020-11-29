@@ -1,11 +1,12 @@
 # spring batch note
 
-JobConfiguration
+JobConfiguration \ ListenerDemo -> chunk创建 
 JobDemo
 FlowDemo
 SplitDemo
 DeciderDemo
 ChildJob1、ChildJob2、ParentJob
+ListenerDemo、ParametersDemo 监听传参
 
 Job
 JobInstance: 一个job对应一个instance
@@ -15,6 +16,10 @@ ExecutionContext: 执行上下文，存储数据、共享数据。step和job都�
 
 Flow
 Flow: 是多个step的集合，可被多个job复用
+
+监听器
+用来监听批处理作业的执行情况
+
 
 
 

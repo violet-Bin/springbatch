@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @date: Create in 22:06 2020/11/29
  * @description:
  */
-@Configuration
+//@Configuration
 public class ChildJob1 {
 
     @Autowired
