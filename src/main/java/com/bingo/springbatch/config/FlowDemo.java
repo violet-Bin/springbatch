@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: jiangjiabin
- * @date: Create in 21:31 2020/11/29
  * @description: Flow
  */
 //@Configuration

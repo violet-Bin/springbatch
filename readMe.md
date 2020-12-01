@@ -7,6 +7,16 @@ SplitDemo
 DeciderDemo
 ChildJob1、ChildJob2、ParentJob
 ListenerDemo、ParametersDemo 监听传参
+读取数据
+ItemReaderDemo
+ItemReaderDB
+ItemReaderFile
+ReStartItemReaderJob
+ItemWriterDBJob
+
+写到库
+ItemWriterToDBJob、processor
+
 
 Job
 JobInstance: 一个job对应一个instance

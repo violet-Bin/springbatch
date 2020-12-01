@@ -15,7 +15,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 /**
  * @author: jiangjiabin
- * @date: Create in 22:12 2020/11/29
  * @description: job嵌套
  */
 //@Configuration

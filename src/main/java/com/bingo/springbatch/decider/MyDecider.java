@@ -7,7 +7,6 @@ import org.springframework.batch.core.job.flow.JobExecutionDecider;
 
 /**
  * @author: jiangjiabin
- * @date: Create in 21:57 2020/11/29
  * @description: 决策器
  */
 public class MyDecider implements JobExecutionDecider {

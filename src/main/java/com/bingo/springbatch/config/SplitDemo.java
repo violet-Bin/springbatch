@@ -15,7 +15,6 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 /**
  * @author: jiangjiabin
- * @date: Create in 21:43 2020/11/29
  * @description: split实现step并发执行
  */
 //@Configuration

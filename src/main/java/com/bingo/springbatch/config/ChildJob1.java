@@ -7,11 +7,9 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: jiangjiabin
- * @date: Create in 22:06 2020/11/29
  * @description:
  */
 //@Configuration

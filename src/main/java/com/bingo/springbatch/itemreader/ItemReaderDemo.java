@@ -17,7 +17,7 @@ import java.util.List;
  * @author: jiangjiabin
  * @description:
  */
-@Configuration
+//@Configuration
 public class ItemReaderDemo {
 
     @Autowired

@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: jiangjiabin
- * @date: Create in 20:15 2020/11/29
  * @description: 基本配置
  */
 //@Configuration
