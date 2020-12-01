@@ -3,6 +3,7 @@ package com.bingo.springbatch.skip;
 import com.bingo.springbatch.itemwriterdb.ItemWriterToDBJob;
 import com.google.common.collect.Lists;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.SkipListener;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -37,9 +38,13 @@ public class SkipDemoJob {
     @Qualifier("skipWriter")
     private SkipWriter skipWriter;
 
+    @Autowired
+    @Qualifier("mySkipListener")
+    private SkipListener<String, String> mySkipListener;
+
     @Bean
     public Job skipJob() {
-        return jobBuilderFactory.get("skipJob3")
+        return jobBuilderFactory.get("skipJob4")
                 .start(skipStep())//执行step.
                 .build();
     }
@@ -54,6 +59,7 @@ public class SkipDemoJob {
                 .faultTolerant()
                 .skip(SkipException.class)
                 .skipLimit(5) //reade、write、process总的跳过次数，如果超过了，就会停止任务
+                .listener(mySkipListener)//错误跳过监听器
                 .build();
     }
 

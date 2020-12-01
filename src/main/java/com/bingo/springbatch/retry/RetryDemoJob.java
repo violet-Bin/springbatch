@@ -20,7 +20,7 @@ import java.util.List;
  * @description: 错误重试
  */
 //@Configuration
-public class RetryDemoJos {
+public class RetryDemoJob {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;

@@ -16,6 +16,8 @@ ItemWriterDBJob
 
 写到库
 ItemWriterToDBJob、processor
+RetryDemoJob
+SkipDemoJob
 
 
 Job
