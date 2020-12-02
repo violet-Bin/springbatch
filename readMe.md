@@ -4,6 +4,7 @@ JobConfiguration \ ListenerDemo -> chunk创建
 JobDemo
 FlowDemo
 SplitDemo
+MultiThreadStepDemoJob
 DeciderDemo
 ChildJob1、ChildJob2、ParentJob
 ListenerDemo、ParametersDemo 监听传参
@@ -18,6 +19,10 @@ ItemWriterDBJob
 ItemWriterToDBJob、processor
 RetryDemoJob
 SkipDemoJob
+
+作业调度
+JobLauncherDemo
+JobOperatorDemo
 
 
 Job

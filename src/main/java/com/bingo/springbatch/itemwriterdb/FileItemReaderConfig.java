@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  * @author: jiangjiabin
  * @description: 从文件中读取数据  FlatFileItemReader
  */
-@Configuration
+//@Configuration
 public class FileItemReaderConfig {
 
     @Bean

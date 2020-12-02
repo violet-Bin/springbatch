@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author: jiangjiabin
- * @date: 2020/12/1 22:36
  * @description:
  */
 @Component("customerUpperProcessor")

@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * @author: jiangjiabin
  * @description: write data to db
  */
-@Configuration
+//@Configuration
 public class ItemWriterDBConfig {
 
     @Autowired

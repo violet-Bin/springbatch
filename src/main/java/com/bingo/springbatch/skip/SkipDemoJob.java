@@ -1,6 +1,5 @@
 package com.bingo.springbatch.skip;
 
-import com.bingo.springbatch.itemwriterdb.ItemWriterToDBJob;
 import com.google.common.collect.Lists;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.SkipListener;
@@ -8,7 +7,6 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
-import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.support.ListItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,7 +19,7 @@ import java.util.List;
  * @author: jiangjiabin
  * @description: 错误跳过
  */
-@Configuration
+//@Configuration
 public class SkipDemoJob {
 
     @Autowired
