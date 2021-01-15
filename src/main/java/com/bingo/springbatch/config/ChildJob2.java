@@ -25,7 +25,7 @@ public class ChildJob2 {
     //在配置文件中配置启动的父job名
     @Bean
     public Job child2DemoJob() {
-        return jobBuilderFactory.get("child2DemoJob")//job名
+        return jobBuilderFactory.get("child2DemoJob3")//job名
                 .start(step2())//执行step.
                 .next(step3())
                 .build();

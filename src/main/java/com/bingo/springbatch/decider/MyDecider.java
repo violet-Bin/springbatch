@@ -16,7 +16,7 @@ public class MyDecider implements JobExecutionDecider {
     @Override
     public FlowExecutionStatus decide(JobExecution jobExecution, StepExecution stepExecution) {
         count++;
-        if (count%2 == 0) {
+        if ((count & 1) == 0) {
             return new FlowExecutionStatus("even");
         } else {
             return new FlowExecutionStatus("odd");

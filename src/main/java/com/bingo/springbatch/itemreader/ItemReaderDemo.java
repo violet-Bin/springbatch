@@ -28,7 +28,7 @@ public class ItemReaderDemo {
 
     @Bean
     public Job itemReaderDemoJob() {
-        return jobBuilderFactory.get("itemReaderDemoJob")//job名
+        return jobBuilderFactory.get("itemReaderDemoJob1")//job名
                 .start(itemReaderStep())//执行step.
                 .build();
     }

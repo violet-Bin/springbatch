@@ -13,12 +13,12 @@ public class MyChunkListener {
 
     @BeforeChunk
     public void beforeChunk(ChunkContext chunkContext) {
-        System.out.println(chunkContext.getStepContext().getStepName() + " before----");
+        System.out.println(chunkContext.getStepContext().getStepName() + " before----" + Thread.currentThread().getName());
     }
 
-//    @AfterChunk
+    @AfterChunk
     public void afterChunk(ChunkContext chunkContext) {
-        System.out.println(chunkContext.getStepContext().getStepName() + " after----");
+        System.out.println(chunkContext.getStepContext().getStepName() + " after----" + Thread.currentThread().getName());
     }
 
 }

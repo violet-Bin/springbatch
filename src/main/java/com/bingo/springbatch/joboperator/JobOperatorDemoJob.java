@@ -25,7 +25,7 @@ import java.util.Map;
  * @author: jiangjiabin
  * @description:
  */
-//@Configuration
+@Configuration
 public class JobOperatorDemoJob implements StepExecutionListener, ApplicationContextAware {
 
     @Autowired
@@ -52,7 +52,7 @@ public class JobOperatorDemoJob implements StepExecutionListener, ApplicationCon
 
     @Bean
     public Job jobOperatorJob() {
-        return jobBuilderFactory.get("jobOperatorJob1")
+        return jobBuilderFactory.get("jobOperatorJob6")
                 .start(jobOperatorStep())
                 .build();
     }

@@ -1,6 +1,5 @@
 package com.bingo.springbatch.restartreader;
 
-import com.bingo.springbatch.itemreaderfromdb.User;
 import com.bingo.springbatch.itemreaderfromfile.Customer;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: jiangjiabin
- * @description: 可中断任务
+ * @description: 可中断job
  */
 //@Configuration
 public class ReStartItemReaderJob {
@@ -31,14 +30,14 @@ public class ReStartItemReaderJob {
 
     @Bean
     public Job restartReaderJob() {
-        return jobBuilderFactory.get("restartReaderJob6")
+        return jobBuilderFactory.get("restartReaderJob11")
                 .start(restartReaderStep())//执行step.
                 .build();
     }
 
     @Bean
     public Step restartReaderStep() {
-        return stepBuilderFactory.get("itemReaderDBStep")
+        return stepBuilderFactory.get("restartReaderStep")
                 .<Customer, Customer>chunk(2)
                 .reader(restartReader)
                 .writer(restartWriter)

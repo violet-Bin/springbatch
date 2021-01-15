@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
  * @author: jiangjiabin
  * @description: JobOperator
  */
-//@Component
-//@EnableScheduling
+@Component
+@EnableScheduling
 public class JobOperatorDemo {
 
     @Autowired
@@ -24,6 +24,6 @@ public class JobOperatorDemo {
     public void startTask() throws JobParametersInvalidException, JobInstanceAlreadyExistsException, NoSuchJobException {
         //执行任务并传参数, 格式k=v, 不用注入对象,
         // (JobLauncher时需要封装一个JobParameter对象，且注入bean)
-        jobOperator.start("jobOperatorJob1", "param=1234");
+        jobOperator.start("jobOperatorJob6", "param=1234");
     }
 }

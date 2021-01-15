@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @author: jiangjiabin
  * @description:
  */
-@Component("restartReader")
+//@Component("restartReader")
 public class RestartReader implements ItemStreamReader<Customer> {
 
     private FlatFileItemReader<Customer> customerFlatFileItemReader = new FlatFileItemReader<>();
@@ -59,7 +59,7 @@ public class RestartReader implements ItemStreamReader<Customer> {
         customerFlatFileItemReader.open(this.executionContext);
         customer = customerFlatFileItemReader.read();
 
-//        if (customer != null && customer.getId() == 7) {
+//        if (customer != null && customer.getId() == 777) {
 //            throw new RuntimeException("wrong! custom id is: " + customer.getId());
 //        }
         return customer;

@@ -27,12 +27,13 @@ public class DeciderDemo {
 
     @Bean
     public Job deciderDemoJob() {
-        return jobBuilderFactory.get("deciderDemoJob")//job名
-                .start(step1())//执行step.
+        return jobBuilderFactory.get("deciderDemoJob4")
+                .start(step1())
                 .next(myDecider())
                 .from(myDecider()).on("even").to(step2())
                 .from(myDecider()).on("odd").to(step3())
-                .from(step3()).on("*").to(myDecider())//因为count++为1，先执行step3()，step3执行后再到决策器，count++后还会执行step2
+                .from(step3()).on("*").to(myDecider())
+                .from(step2())
                 .end()
                 .build();
     }

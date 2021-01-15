@@ -16,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 /**
  * @author: jiangjiabin
  * @description: job嵌套
+ * 配置文件中指定只启动父Job
  */
 //@Configuration
 public class ParentJob {
@@ -37,13 +38,13 @@ public class ParentJob {
 
     @Bean
     public Job parentDemoJob(JobRepository repository, PlatformTransactionManager transactionManager) {
-        return jobBuilderFactory.get("parentDemoJob")//job名
+        return jobBuilderFactory.get("parentDemoJob3")//job名
                 .start(childJob1(repository, transactionManager))
                 .next(childJob2(repository, transactionManager))
                 .build();
     }
 
-    //返回的是Step类型的Job  转换
+    //返回的是Job类型的Step  转换
     private Step childJob2(JobRepository repository, PlatformTransactionManager transactionManager) {
         return new JobStepBuilder(new StepBuilder("childJob2"))
                 .job(child2DemoJob)
@@ -51,7 +52,6 @@ public class ParentJob {
                 .repository(repository)//job的持久化对象
                 .transactionManager(transactionManager)//事务管理器
                 .build();
-
     }
 
     private Step childJob1(JobRepository repository, PlatformTransactionManager transactionManager) {

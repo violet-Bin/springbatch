@@ -28,7 +28,7 @@ public class JobConfiguration {
 
     @Bean
     public Job firstJob() {
-        return jobBuilderFactory.get("firstJob")//job名
+        return jobBuilderFactory.get("firstJob1")//job名
                 .start(step2())//执行step.
                 .build();
 

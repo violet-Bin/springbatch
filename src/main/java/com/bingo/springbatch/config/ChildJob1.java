@@ -7,6 +7,7 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: jiangjiabin
@@ -23,7 +24,7 @@ public class ChildJob1 {
 
     @Bean
     public Job child1DemoJob() {
-        return jobBuilderFactory.get("child1DemoJob")//job名
+        return jobBuilderFactory.get("child1DemoJob3")//job名
                 .start(step1())//执行step.
                 .build();
     }

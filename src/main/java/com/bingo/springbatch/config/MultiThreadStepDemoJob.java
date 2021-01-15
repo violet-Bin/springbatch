@@ -1,30 +1,27 @@
 package com.bingo.springbatch.config;
 
-import com.google.common.collect.Lists;
-import javafx.beans.property.adapter.JavaBeanObjectPropertyBuilder;
-import org.springframework.batch.core.Job;
-import org.springframework.batch.core.Step;
+import org.springframework.batch.core.*;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.support.ListItemReader;
-import org.springframework.batch.repeat.support.RepeatTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author: jiangjiabin
  * @description: 多线程step
  */
 //@Configuration
-public class MultiThreadStepDemoJob {
+public class MultiThreadStepDemoJob implements StepExecutionListener {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
@@ -32,12 +29,12 @@ public class MultiThreadStepDemoJob {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-    @Autowired
-    private TaskExecutor aTaskExecutor;
+//    @Autowired
+//    private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     @Bean
     public Job multiThreadStepJob() {
-        return jobBuilderFactory.get("multiThreadStepJob1")
+        return jobBuilderFactory.get("multiThreadStepJob15")
                 .start(multiThreadStepStep())
                 .build();
     }
@@ -45,11 +42,12 @@ public class MultiThreadStepDemoJob {
     @Bean
     public Step multiThreadStepStep() {
         return stepBuilderFactory.get("multiThreadStepStep")
-                .<Integer, Integer>chunk(10)
+                .<Integer, Integer>chunk(9)
                 .reader(reader())
                 .writer(writer())
-                .taskExecutor(aTaskExecutor)
+                .taskExecutor(new ThreadPoolTaskExecutor())
                 .throttleLimit(20)//限制能使用最大的线程数
+                .listener(this)
                 .build();
     }
 
@@ -66,12 +64,21 @@ public class MultiThreadStepDemoJob {
 
     @Bean
     public ListItemReader<Integer> reader() {
-        List<Integer> item = Lists.newArrayList();
-        for (int i = 0; i < 1000; i++) {
-            item.add(i);
+        CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
         }
         System.out.println("reader -> " + Thread.currentThread().getName());
-        return new ListItemReader<>(item);
+        return new ListItemReader<>(list);
     }
 
+    @Override
+    public void beforeStep(StepExecution stepExecution) {
+        System.out.println(Thread.currentThread().getName());
+    }
+
+    @Override
+    public ExitStatus afterStep(StepExecution stepExecution) {
+        return null;
+    }
 }

@@ -27,7 +27,7 @@ public class JobLauncherDemoJob implements StepExecutionListener {
 
     @Bean
     public Job jobLauncherJob() {
-        return jobBuilderFactory.get("jobLauncherJob")
+        return jobBuilderFactory.get("jobLauncherJob2")
                 .start(jobLauncherStep())
                 .build();
     }

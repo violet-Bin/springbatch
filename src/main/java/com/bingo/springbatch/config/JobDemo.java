@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: jiangjiabin
- * @description: 配置类
+ * @description:
  */
 //@Configuration
 public class JobDemo {
@@ -30,7 +30,7 @@ public class JobDemo {
 //                .next(step2())
 //                .next(step3())
 //                .build();
-        return jobBuilderFactory.get("jobDemoJob")
+        return jobBuilderFactory.get("jobDemoJob1")
                 .start(step1()).on("COMPLETED")//条件
                 .to(step2())
                 .from(step2()).on("COMPLETED")//fail()、stopAndRestart()

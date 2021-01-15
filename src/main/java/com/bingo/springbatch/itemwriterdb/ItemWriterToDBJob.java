@@ -46,7 +46,7 @@ public class ItemWriterToDBJob {
 
     @Bean
     public Job itemWriterDBJob() {
-        return jobBuilderFactory.get("itemWriterDBJob1")
+        return jobBuilderFactory.get("itemWriterDBJob2")
                 .start(itemWriterDBStep())//执行step.
                 .build();
     }
@@ -56,8 +56,8 @@ public class ItemWriterToDBJob {
         return stepBuilderFactory.get("itemWriterDBStep")
                 .<Customer, Customer>chunk(2)
                 .reader(flatFileReader)
-                .writer(itemWriterDB)
                 .processor(processor()) //多种处理方式
+                .writer(itemWriterDB)
                 .build();
     }
 

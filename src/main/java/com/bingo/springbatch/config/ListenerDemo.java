@@ -30,7 +30,7 @@ public class ListenerDemo {
 
     @Bean
     public Job listenerDemoJob() {
-        return jobBuilderFactory.get("listenerDemoJob2")//job名
+        return jobBuilderFactory.get("listenerDemoJob9")//job名
                 .start(step1())
                 .listener(new MyJobListener())
                 .build();
@@ -44,6 +44,7 @@ public class ListenerDemo {
                 .listener(new MyChunkListener())
                 .reader(read())
                 .writer(write())
+                .throttleLimit(2)
                 .build();
 
     }
@@ -55,7 +56,7 @@ public class ListenerDemo {
 
     @Bean
     public ItemReader<String> read() {
-        return new ListItemReader<>(Arrays.asList("spring", "java", "haha"));
+        return new ListItemReader<>(Arrays.asList("1", "2", "3"));
     }
 
 
